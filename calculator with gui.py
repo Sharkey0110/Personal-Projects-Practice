@@ -51,51 +51,25 @@ def calculate():
         pass
 
 
-
-
 #The code that creates all of the buttons and windows
 app.configure(bg="#9cf7ca")
 math = Label(app,text="",width=12, bg = "#9cf7ca")
 answer = Label(app,text="",width=5,bg = "#9cf7ca")
-one=Button(app,text="1",relief=RIDGE,bd=5,command=ft.partial(number_input,"1"),width = 5,bg = "cyan")
-two=Button(app,text="2",relief=RIDGE,bd=5,command=ft.partial(number_input,"2"),width = 5,bg = "cyan")
-three=Button(app,text="3",relief=RIDGE,bd=5,command=ft.partial(number_input,"3"),width = 5,bg = "cyan")
-four=Button(app,text="4",relief=RIDGE,bd=5,command=ft.partial(number_input,"4"),width = 5,bg = "cyan")
-five=Button(app,text="5",relief=RIDGE,bd=5,command=ft.partial(number_input,"5"),width = 5,bg = "cyan")
-six=Button(app,text="6",relief=RIDGE,bd=5,command=ft.partial(number_input,"6"),width = 5,bg = "cyan")
-seven=Button(app,text="7",relief=RIDGE,bd=5,command=ft.partial(number_input,"7"),width = 5,bg = "cyan")
-eight=Button(app,text="8",relief=RIDGE,bd=5,command=ft.partial(number_input,"8"),width = 5,bg = "cyan")
-nine=Button(app,text="9",relief=RIDGE,bd=5,command=ft.partial(number_input,"9"),width = 5,bg = "cyan")
-zero=Button(app,text="0",relief=RIDGE,bd=5,command=ft.partial(number_input,"0"),width = 20,bg = "cyan")
-plus = Button(app,text="+",relief=RIDGE,bd=5,command=ft.partial(number_input,"+"),width = 5,bg = "cyan")
-minus = Button(app,text="-",relief=RIDGE,bd=5,command=ft.partial(number_input,"-"),width = 5,bg = "cyan")
-multiply = Button(app,text="x",relief=RIDGE,bd=5,command=ft.partial(number_input,"*"),width = 5,bg = "cyan")
-divide = Button(app,text="//",relief=RIDGE,bd=5,command=ft.partial(number_input,"//"),width = 5,bg = "cyan")
-clear = Button(app,text="C",relief=RIDGE,bd=5,command=ft.partial(clear_func,1),width = 5,bg = "cyan")
-clearall = Button(app,text="CE",relief=RIDGE,bd=5,command=ft.partial(clear_func,999),width = 5,bg = "cyan")
-equal = Button(app,text="=",relief=RIDGE,bd=5,command=calculate,width= 5,height=3,bg = "cyan")
+for x in range(10):
+    Button(app,text = str(x),relief=RIDGE,bd=5,command=ft.partial(number_input,str(x)),width = 5,bg = "cyan").grid(row= (x+3)//3,column=x%3)
+       
+Button(app,text="0",relief=RIDGE,bd=5,command=ft.partial(number_input,"0"),width = 20,bg = "cyan").grid(row=4,column=0,columnspan=3)
+Button(app,text="+",relief=RIDGE,bd=5,command=ft.partial(number_input,"+"),width = 5,bg = "cyan").grid(row=1,column=3)
+Button(app,text="-",relief=RIDGE,bd=5,command=ft.partial(number_input,"-"),width = 5,bg = "cyan").grid(row=2,column=3)
+Button(app,text="x",relief=RIDGE,bd=5,command=ft.partial(number_input,"*"),width = 5,bg = "cyan").grid(row=3,column=3)
+Button(app,text="//",relief=RIDGE,bd=5,command=ft.partial(number_input,"//"),width = 5,bg = "cyan").grid(row=4,column=3)
+Button(app,text="C",relief=RIDGE,bd=5,command=ft.partial(clear_func,1),width = 5,bg = "cyan").grid(row=1,column=4)
+Button(app,text="CE",relief=RIDGE,bd=5,command=ft.partial(clear_func,999),width = 5,bg = "cyan").grid(row=2,column=4)
+Button(app,text="=",relief=RIDGE,bd=5,command=calculate,width= 5,height=3,bg = "cyan").grid(row=3,column=4,rowspan=4)
 
 
-
-#The code that formats the buttons onto the window
+#The code that formats the labels stored as variables onto the window
 math.grid(row=0,column=0,columnspan=3)
 answer.grid(row=0,column=3,columnspan=4)
-one.grid(row=1,column=0)
-two.grid(row=1,column=1)
-three.grid(row=1,column=2)
-four.grid(row=2,column=0)
-five.grid(row=2,column=1)
-six.grid(row=2,column=2)
-seven.grid(row=3,column=0)
-eight.grid(row=3,column=1)
-nine.grid(row=3,column=2)
-zero.grid(row=4,column=0,columnspan=3)
-plus.grid(row=1,column=3)
-minus.grid(row=2,column=3)
-multiply.grid(row=3,column=3)
-divide.grid(row=4,column=3)
-clear.grid(row=1,column=4)
-clearall.grid(row=2,column=4)
-equal.grid(row=3,column=4,rowspan=4)
 
 app.mainloop()
